@@ -25,3 +25,14 @@
 /Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/bin/Debug/net8.0/Newtonsoft.Json.dll
 /Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/obj/Debug/net8.0/AI-Product-Mapping-Console.csproj.AssemblyReference.cache
 /Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/obj/Debug/net8.0/AI-Produ.C1CEE72C.Up2Date
+/Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/obj/Debug/net8.0/AI-Product-Mapping-Console.sourcelink.json
+/Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/bin/Debug/net8.0/EPPlus.dll
+/Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/bin/Debug/net8.0/EPPlus.Interfaces.dll
+/Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/bin/Debug/net8.0/EPPlus.System.Drawing.dll
+/Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/bin/Debug/net8.0/Microsoft.IO.RecyclableMemoryStream.dll
+/Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+/Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/bin/Debug/net8.0/System.Drawing.Common.dll
+/Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/bin/Debug/net8.0/System.Security.Cryptography.Pkcs.dll
+/Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/bin/Debug/net8.0/runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.dll
+/Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/bin/Debug/net8.0/runtimes/win/lib/net7.0/System.Drawing.Common.dll
+/Users/tan_waris/Library/CloudStorage/OneDrive-Personal/Projects/AI-Product-Mapping-Console/bin/Debug/net8.0/runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll

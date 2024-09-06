@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AI-Product-Mapping-Console")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9891bf9019a4bc601eab00f127684935ba455bfa")]
 [assembly: System.Reflection.AssemblyProductAttribute("AI-Product-Mapping-Console")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AI-Product-Mapping-Console")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

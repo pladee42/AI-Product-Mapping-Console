@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AI-Product-Mapping-Console", "AI-Product-Mapping-Console.csproj", "{38DDCACC-6B61-458F-8ABD-4B6673AE1979}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AI-Product-Mapping-Console", "AI-Product-Mapping-Console.csproj", "{D28BF1A0-3CC0-4010-B744-C56982D22099}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{38DDCACC-6B61-458F-8ABD-4B6673AE1979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38DDCACC-6B61-458F-8ABD-4B6673AE1979}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38DDCACC-6B61-458F-8ABD-4B6673AE1979}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38DDCACC-6B61-458F-8ABD-4B6673AE1979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D28BF1A0-3CC0-4010-B744-C56982D22099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28BF1A0-3CC0-4010-B744-C56982D22099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28BF1A0-3CC0-4010-B744-C56982D22099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28BF1A0-3CC0-4010-B744-C56982D22099}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

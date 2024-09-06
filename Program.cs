@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System.Drawing;
+using System.IO;
 
 class Program
 {
@@ -51,7 +55,7 @@ class Program
         WriteLog("result", result.ToString());
 
         // Save result to CSV (use a CSV library like CsvHelper if needed)
-        SaveToCsv("output/match_result.csv", result);
+        SaveToExcel("output/match_result.xlsx", result);
     }
 
     private static string PromptUser(string message)
@@ -86,31 +90,95 @@ class Program
         }
     }
 
-    private static void SaveToCsv(string filePath, string data)
+    // private static void SaveToCsv(string filePath, string data)
+    // {
+
+    // JArray jsonArray = JArray.Parse(data);
+
+    // // Get the headers from the first object
+    // var headers = jsonArray.First?.Children<JProperty>().Select(p => p.Name).ToArray();
+
+    // // Create the CSV lines
+    // var csvLines = new List<string>
+    // {
+    // string.Join(",", headers!) // Add the headers as the first line
+    // };
+
+    // // Add each JSON object's values as a CSV line
+    // foreach (var obj in jsonArray)
+    // {
+    // var values = obj.Children<JProperty>().Select(p => p.Value.ToString()).ToArray();
+    // csvLines.Add(string.Join(",", values));
+    // }
+
+    // // Combine all lines into a single CSV string
+    // string csv = string.Join(Environment.NewLine, csvLines);
+
+    // // Output the CSV file
+    // File.WriteAllText(filePath, csv);
+    // }
+    // }
+
+    private static void SaveToExcel(string filePath, string data)
     {
+        // Set the EPPlus license context
+        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-        JArray jsonArray = JArray.Parse(data);
-
-        // Get the headers from the first object
-        var headers = jsonArray.First?.Children<JProperty>().Select(p => p.Name).ToArray();
-
-        // Create the CSV lines
-        var csvLines = new List<string>
+        try
         {
-            string.Join(",", headers!) // Add the headers as the first line
-        };
+            // Parse the input string data to JArray
+            JArray jsonArray = JArray.Parse(data);
 
-        // Add each JSON object's values as a CSV line
-        foreach (var obj in jsonArray)
-        {
-            var values = obj.Children<JProperty>().Select(p => p.Value.ToString()).ToArray();
-            csvLines.Add(string.Join(",", values));
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Sheet1");
+
+                // Add headers
+                worksheet.Cells[1, 1].Value = "Vendor SKU";
+                worksheet.Cells[1, 2].Value = "Vendor Product";
+                worksheet.Cells[1, 3].Value = "BZBS Product";
+                worksheet.Cells[1, 4].Value = "BZBS SKU";
+                worksheet.Cells[1, 5].Value = "Probability";
+                worksheet.Cells[1, 6].Value = "Quantity";
+
+                int row = 2;
+                foreach (var item in jsonArray)
+                {
+                    worksheet.Cells[row, 1].Value = item["vendor_sku"]?.ToString();
+                    worksheet.Cells[row, 2].Value = item["vendor_product"]?.ToString();
+                    worksheet.Cells[row, 3].Value = item["bzbs_product"]?.ToString();
+                    worksheet.Cells[row, 4].Value = item["bzbs_sku"]?.ToString();
+                    double probability = item["probability"]?.ToObject<double>() ?? 0;
+                    worksheet.Cells[row, 5].Value = probability;
+                    worksheet.Cells[row, 6].Value = item["quantity"]?.ToObject<int>();
+
+                    // Highlight the Probability cell based on the criteria
+                    if (probability < 0.21)
+                    {
+                        worksheet.Cells[row, 5].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        worksheet.Cells[row, 5].Style.Fill.BackgroundColor.SetColor(Color.Red);
+                    }
+                    else if (probability >= 0.21 && probability <= 0.41)
+                    {
+                        worksheet.Cells[row, 5].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        worksheet.Cells[row, 5].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                    }
+
+                    row++;
+                }
+
+                // AutoFit columns for better display
+                worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                // Save the Excel package to the specified file path
+                FileInfo excelFile = new FileInfo(filePath);
+                package.SaveAs(excelFile);
+            }
         }
-
-        // Combine all lines into a single CSV string
-        string csv = string.Join(Environment.NewLine, csvLines);
-
-        // Output the CSV file
-        File.WriteAllText(filePath, csv);
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error converting JSON to Excel: {ex.Message}");
+        }
     }
+
 }
